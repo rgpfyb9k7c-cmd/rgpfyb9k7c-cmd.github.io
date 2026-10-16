@@ -1,0 +1,95 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(#0b4f5c, #5fc7b8);
+  font-family: "Trebuchet MS", Verdana, sans-serif;
+  color: #fff;
+}
+
+main {
+  width: 100%;
+  max-width: 440px;
+  padding: 16px;
+  text-align: center;
+}
+
+h1 { margin: 8px 0; font-size: 1.7rem; }
+.hud { margin: 4px 0; font-size: 1.05rem; }
+
+#compliment {
+  min-height: 2.6em;
+  margin: 8px 0;
+  font-style: italic;
+  color: #ffe66d;
+}
+
+.panel {
+  background: rgba(0, 0, 0, 0.28);
+  border-radius: 14px;
+  padding: 16px;
+  margin: 10px 0;
+}
+
+.hidden { display: none; }
+
+.label { margin: 0; opacity: 0.85; }
+
+.big-word {
+  margin: 4px 0 12px;
+  font-size: 2.4rem;
+  font-weight: bold;
+  color: #ffe66d;
+  text-transform: lowercase;
+}
+
+form { display: flex; gap: 8px; }
+
+input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 12px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  color: #0b4f5c;
+  background: #ffe66d;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+button:hover { background: #fff3a8; }
+button:disabled { opacity: 0.6; cursor: default; }
+
+#found {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
+#found li {
+  background: #ffe66d;
+  color: #0b4f5c;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: bold;
+}
+
+#found li.near { background: #bfe9e1; }
+
+#message { min-height: 1.4em; margin: 8px 0; }
+#missed { margin: 4px 0 12px; line-height: 1.6; }

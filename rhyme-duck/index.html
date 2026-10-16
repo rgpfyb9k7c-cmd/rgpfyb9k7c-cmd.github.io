@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rhyme Duck</title>
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#0b4f5c">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Rhyme Duck">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <link rel="icon" type="image/png" href="./icon-192.png">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <main>
+    <h1>🦆 Rhyme Duck</h1>
+    <p class="hud">
+      Score: <strong id="score">0</strong> &nbsp;|&nbsp;
+      Time: <strong id="time">60</strong> &nbsp;|&nbsp;
+      Best: <strong id="best">0</strong>
+    </p>
+    <p id="compliment" aria-live="polite">The duck believes in your rhyming potential.</p>
+
+    <section id="intro" class="panel">
+      <p>You get a word and 60 seconds. Type as many rhymes as you can.</p>
+      <p>Perfect rhymes are worth 10 points. Near rhymes are worth 5.</p>
+      <button id="startBtn" type="button">Start</button>
+    </section>
+
+    <section id="play" class="panel hidden">
+      <p class="label">Rhyme with:</p>
+      <p id="word" class="big-word"></p>
+      <form id="form" autocomplete="off">
+        <input id="guess" type="text" placeholder="Type a rhyme..." autocapitalize="none" autocorrect="off" spellcheck="false">
+        <button id="submitBtn" type="submit">Quack</button>
+      </form>
+      <ul id="found"></ul>
+    </section>
+
+    <section id="results" class="panel hidden">
+      <h2 id="resultsTitle">Time's up!</h2>
+      <p id="resultsText"></p>
+      <p class="label">Rhymes you missed:</p>
+      <p id="missed"></p>
+      <button id="againBtn" type="button">Play again</button>
+    </section>
+
+    <p id="message" aria-live="polite"></p>
+  </main>
+  <script src="./app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("./sw.js").catch(function (err) {
+          console.log("Service worker not registered:", err);
+        });
+      });
+    }
+  </script>
+</body>
+</html>
